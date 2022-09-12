@@ -19,16 +19,16 @@ class BooksList extends Component {
     }
     return (
       <div className={style.book}>
-        <Image 
+        <img  
           src={`http://booksdescr.org/covers/${book.coverurl}`}
           alt="Book Cover"
-          className={style.book-cover}
+          className={style.bookCover}
         />
         <div className={style.info}>
-          <p className={style.book-title}>{title}</p>
-          <p className={style.book-author}>{author}</p>
+          <p className={style.bookTitle}>{title}</p>
+          <p className={style.bookAuthor}>{author}</p>
           <a
-            className={syle.download}
+            className={style.download}
             href={`http://libgen.io/get.php?md5=${book.md5.toLowerCase()}`}
           >
             Download

@@ -19,13 +19,14 @@ class Main extends Component {
   }
 
   setBooks(userInput) {
+
     this.setState({
       books: [],
       loading: true,
       noResults: false
     });
 
-    
+
 
     let options = {
       mirror: "/api/hello",
@@ -34,9 +35,23 @@ class Main extends Component {
       count: 10
     };
 
-    libgen.search(options, (err, data) => {
-      console.log(options);
-      if (err) {
+    fetch("/api/hello")
+      .then(response => {
+        // handle the response
+
+        //console.log(response.json());
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          books: this.cleanDups(data),
+          loading: false,
+          noResults: false
+        });
+
+      })
+      .catch(err => {
         console.log(err);
         if (err.message.includes("No results for")) {
           this.setState({
@@ -45,14 +60,36 @@ class Main extends Component {
             noResults: true
           });
         } else console.error(err);
-      } else {
-        this.setState({
-          books: this.cleanDups(data),
-          loading: false,
-          noResults: false
-        });
-      }
-    });
+      });
+
+
+
+    /*
+      libgen.search(options, (err, data) => {
+    
+          if (err) {
+            console.log(err);
+            if (err.message.includes("No results for")) {
+              this.setState({
+                books: [],
+                loading: false,
+                noResults: true
+              });
+            } else console.error(err);
+          } 
+          
+          else {
+            this.setState({
+              books: this.cleanDups(data),
+              loading: false,
+              noResults: false
+            });
+          }
+    
+        }
+    
+        );*/
+
   }
 
   render() {
