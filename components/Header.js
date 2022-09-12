@@ -30,13 +30,13 @@ class Header extends Component {
 
   render() {
     return (
-      <div id="header">
+      <div className={style.header}>
         <Image className={style.logo} src="/images/readmoreFullLogo.svg" alt="Logo" width={150} height={32} />
         <div className={style.searchContainer}>
-          <form className="search-bar" onSubmit={this.search}>
+          <form className={style.searchBar} onSubmit={this.search}>
             <input
               ref={a => (this._inputElement = a)}
-              className="search-input"
+              className={style.searchInput}
               type="text"
               placeholder="Find a book..."
             />
