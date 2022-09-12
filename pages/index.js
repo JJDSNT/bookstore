@@ -11,8 +11,8 @@ export default function Home() {
         <title>Bookstore</title>
         <meta name="description" content="A web ePub reader" />
         <link rel="icon" href="/favicon.ico" />
-        <Script src="https://kit.fontawesome.com/c7243fd47d.js" />
       </Head>
+      <Script src="https://kit.fontawesome.com/c7243fd47d.js" />
       <Main />
     </div>
   )

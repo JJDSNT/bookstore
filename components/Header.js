@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Image from 'next/image'
+import Image from 'next/future/image'
 import style from "./Header.module.css";
+import Logoteste from '../assets/readmoreFullLogo.svg'
 
 class Header extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Header extends Component {
   render() {
     return (
       <div className={style.header}>
-        <Image className={style.logo} src="/images/readmoreFullLogo.svg" alt="Logo" width={150} height={32} />
+        <Image className={style.logo} src={Logoteste} alt="Logo" />
         <div className={style.searchContainer}>
           <form className={style.searchBar} onSubmit={this.search}>
             <input
