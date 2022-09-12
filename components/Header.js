@@ -29,6 +29,8 @@ class Header extends Component {
     }
   }
 
+  getStyle(state){if (!state) return style.hidden; else return style.error}
+
   render() {
     return (
       <div className={style.header}>
@@ -46,10 +48,10 @@ class Header extends Component {
               <p className={style.searchButtonText}>Search</p>
             </button>
           </form>
-          <p className={`error ${this.state.error ? "" : "hidden"}`}>
+          <p className={this.getStyle(this.state.error)}>
             Search must be atleast 4 characters
           </p>
-          <p className={`error ${this.props.noResults ? "" : "hidden"}`}>
+          <p className={this.getStyle(this.props.noResults)}>
             No results
           </p>
         </div>
