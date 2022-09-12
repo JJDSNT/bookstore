@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Image from 'next/image'
 import style from "./BooksList.module.css";
 
 class BooksList extends Component {
@@ -18,7 +19,7 @@ class BooksList extends Component {
     }
     return (
       <div className={style.book}>
-        <img
+        <Image 
           src={`http://booksdescr.org/covers/${book.coverurl}`}
           alt="Book Cover"
           className={style.book-cover}

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 import Main from "../components/Main";
 
@@ -11,7 +11,7 @@ export default function Home() {
         <title>Bookstore</title>
         <meta name="description" content="A web ePub reader" />
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/c7243fd47d.js"></script>
+        <Script src="https://kit.fontawesome.com/c7243fd47d.js" />
       </Head>
       <Main />
     </div>
