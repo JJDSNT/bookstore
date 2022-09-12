@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001396",
     "next": "12.3.0",
+    "next-pwa": "^5.6.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "resolve-dependency": "1.0.3"
   },
   "devDependencies": {
     "eslint": "8.23.0",
