@@ -14,7 +14,7 @@ Esse é um projeto de estudo
 
 [React-Reader](https://github.com/gerhardsletten/react-reader)
 
-# Micsc
+# Credits
 [React-ePub-Reader](https://github.com/alex1504/react-epub-reader)
 
 [Monocore](https://github.com/joseph/Monocle/wiki/Page-flippers)
