@@ -21,9 +21,7 @@ Esse é um projeto de estudo
 
 [EMF](https://github.com/rschroll/efm/tree/gh-pages)
 
-# IPFS web based ePub reader
-
-Repos para estudo do IPFS
+# IPFS Links
 
 https://github.com/satorumurmur/bibi/issues/72
 
