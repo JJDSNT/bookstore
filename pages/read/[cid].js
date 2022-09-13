@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ReactReader } from "react-reader"
 
@@ -21,16 +22,17 @@ const BookReaderPage = () => {
 
     return (
         <>
-            <p>CID: {cid}</p>
-            <p>Name: {name}</p>
-            {path}
-
+            <div style={{ float:"right" }}>
+                <Link href="/">Back to home</Link>
+            </div>
             <div style={{ height: "100vh" }}>
                 <ReactReader
                     location={location}
                     locationChanged={locationChanged}
                     url={path}
+                    title={name}
                 />
+
             </div>
         </>
     )
