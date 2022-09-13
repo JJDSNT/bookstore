@@ -7,14 +7,14 @@ Esse é um projeto de estudo
 ## Bookstore utilizado o libgen
 
 
-## Links
+# Credits
 [Libgen](https://github.com/dunn/libgen.js)
 
 [React-Bookstore](https://github.com/kartiknair/react-bookstore)
 
 [React-Reader](https://github.com/gerhardsletten/react-reader)
 
-# Credits
+## Links
 [React-ePub-Reader](https://github.com/alex1504/react-epub-reader)
 
 [Monocore](https://github.com/joseph/Monocle/wiki/Page-flippers)
