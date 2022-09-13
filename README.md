@@ -7,7 +7,7 @@ Esse é um projeto de estudo
 ## Bookstore utilizado o libgen
 
 
-# Credits
+## Credits
 [Libgen](https://github.com/dunn/libgen.js)
 
 [React-Bookstore](https://github.com/kartiknair/react-bookstore)
@@ -21,7 +21,7 @@ Esse é um projeto de estudo
 
 [EMF](https://github.com/rschroll/efm/tree/gh-pages)
 
-# IPFS Links
+## IPFS Links
 
 https://github.com/satorumurmur/bibi/issues/72
 
@@ -41,7 +41,7 @@ https://www.web3dev.com.br/felipegueller/armazenamento-de-dados-descentralizados
 
 https://js.ipfs.tech/pt/
 
-# Sample Libgen Libs
+## Sample Libgen Libs
 
 https://github.com/doc-han/LibGenesis
 
@@ -49,11 +49,11 @@ https://www.npmjs.com/package/libgen-uploader
 
 https://pypi.org/project/libgen-api/
 
-# Livro conectado
+## Livro conectado
 
 https://github.com/W3CBrasil/epub-didatico-conectado
 
-# Sample ePubs
+## Sample ePubs
 
 https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub
 
