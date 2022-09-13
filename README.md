@@ -8,3 +8,8 @@ Esse é um projeto de estudo
 
 
 ## Links
+[Libgen](https://github.com/dunn/libgen.js)
+
+[React-Bookstore](https://github.com/kartiknair/react-bookstore)
+
+[React-Reader](https://github.com/gerhardsletten/react-reader)
