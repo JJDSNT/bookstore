@@ -17,12 +17,13 @@ Esse é um projeto de estudo
 # Micsc
 [React-ePub-Reader](https://github.com/alex1504/react-epub-reader)
 
-Monocore
-EMF
+[Monocore](https://github.com/joseph/Monocle/wiki/Page-flippers)
+
+[EMF](https://github.com/rschroll/efm/tree/gh-pages)
 
 # IPFS web based ePub reader
 
-Repo para estudo do IPFS
+Repos para estudo do IPFS
 
 https://github.com/satorumurmur/bibi/issues/72
 
