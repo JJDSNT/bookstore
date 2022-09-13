@@ -18,9 +18,9 @@ class BooksList extends Component {
       title = `${book.author.slice(0, 30)}...`;
     }
     return (
-      <div className={style.book}>
+      <div className={style.book} key={book.id}>
         <img  
-          src={`http://booksdescr.org/covers/${book.coverurl}`}
+          src={`https://libgen.rs/covers/${book.coverurl}`}
           alt="Book Cover"
           className={style.bookCover}
         />
@@ -29,9 +29,15 @@ class BooksList extends Component {
           <p className={style.bookAuthor}>{author}</p>
           <a
             className={style.download}
-            href={`http://libgen.io/get.php?md5=${book.md5.toLowerCase()}`}
+            href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${encodeURIComponent(book.title)}.${book.extension}`}
           >
             Download
+          </a>
+          <a
+            className={style.download}
+            href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${encodeURIComponent(book.title)}.${book.extension}`}
+          >
+            Ler
           </a>
         </div>
       </div>

@@ -29,7 +29,7 @@ class Header extends Component {
     }
   }
 
-  getStyle(state){if (!state) return style.hidden; else return style.error}
+  getStyle(state) { if (!state) return style.hidden; else return style.error }
 
   render() {
     return (
@@ -43,6 +43,11 @@ class Header extends Component {
               type="text"
               placeholder="Find a book..."
             />
+            <select>
+              <option selected value="ePub">ePub</option>
+              <option value="PDF">PDF</option>
+              <option value="">Todos</option>
+            </select>
             <button className={style.searchButton} type="submit">
               <i className="fas fa-search" />
               <p className={style.searchButtonText}>Search</p>
