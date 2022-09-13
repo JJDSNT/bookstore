@@ -46,7 +46,7 @@ class Header extends Component {
             <select>
               <option selected value="ePub">ePub</option>
               <option value="PDF">PDF</option>
-              <option value="">Todos</option>
+              <option value="">All</option>
             </select>
             <button className={style.searchButton} type="submit">
               <i className="fas fa-search" />

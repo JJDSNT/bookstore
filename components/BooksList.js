@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Link from 'next/link'
 import Image from 'next/image'
 import style from "./BooksList.module.css";
 
@@ -11,6 +12,7 @@ class BooksList extends Component {
   createBook(book) {
     let title = book.title;
     let author = book.author;
+    let url = `/read/${book.ipfs_cid}?name=${book.title}`;
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;
     }
@@ -19,7 +21,7 @@ class BooksList extends Component {
     }
     return (
       <div className={style.book} key={book.id}>
-        <img  
+        <img
           src={`https://libgen.rs/covers/${book.coverurl}`}
           alt="Book Cover"
           className={style.bookCover}
@@ -29,16 +31,13 @@ class BooksList extends Component {
           <p className={style.bookAuthor}>{author}</p>
           <a
             className={style.download}
-            href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${encodeURIComponent(book.title)}.${book.extension}`}
+            href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${book.title}.${book.extension}`}
           >
             Download
           </a>
-          <a
-            className={style.download}
-            href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${encodeURIComponent(book.title)}.${book.extension}`}
-          >
-            Ler
-          </a>
+          <Link href={url}>
+            <a className={style.download}>Read</a>
+          </Link>
         </div>
       </div>
     );
