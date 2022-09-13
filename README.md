@@ -13,3 +13,9 @@ Esse é um projeto de estudo
 [React-Bookstore](https://github.com/kartiknair/react-bookstore)
 
 [React-Reader](https://github.com/gerhardsletten/react-reader)
+
+# Micsc
+[React-ePub-Reader](https://github.com/alex1504/react-epub-reader)
+
+Monocore
+EMF
