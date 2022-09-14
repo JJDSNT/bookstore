@@ -43,6 +43,8 @@ https://js.ipfs.tech/pt/
 
 ## Sample Libgen Libs
 
+https://github.com/Yetangitu/books
+
 https://github.com/doc-han/LibGenesis
 
 https://www.npmjs.com/package/libgen-uploader
