@@ -20,7 +20,8 @@ export default async function handler(req, res) {
       query: req.body.query,
       count: 5,
       sort_by: 'year',
-      reverse: true
+      reverse: true,
+      extension: 'pdf'
     }
     //console.log(req.body.query);
     //console.log(options);
