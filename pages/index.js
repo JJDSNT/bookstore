@@ -12,6 +12,8 @@ export default function Home() {
         <meta name="description" content="A web ePub reader" />
         <link rel="icon" href="/favicon.ico" />
 
+        <meta name="referrer" content="no-referrer" />
+
         <meta property="og:url" content="https://github.com/JJDSNT/bookstore" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Bookstore" />

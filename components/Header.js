@@ -44,7 +44,7 @@ class Header extends Component {
               placeholder="Find a book..."
             />
             <select>
-              <option selected value="ePub">ePub</option>
+              <option defaultValue value="ePub">ePub</option>
               <option value="PDF">PDF</option>
               <option value="">All</option>
             </select>

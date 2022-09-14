@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import style from "./BooksList.module.css";
 
+
 class BooksList extends Component {
   constructor(props) {
     super(props);
