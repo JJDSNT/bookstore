@@ -16,22 +16,22 @@ const MonoclePage = () => {
 
 
     //useeffect para atualizar o cid?
-    
+
     let teste = `https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub`;
     let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
     //[path, setPath] = useState(path);
 
     useEffect(() => {
-        if (!cid){
+        if (!cid) {
             return;
         }
         // This is some basic code for using Monocle with EFM.
         // First, we need to tell zip.js where to find its accessory files.
-        if (zip ===undefined){
+        if (zip === undefined) {
             return;
         }
         zip.workerScriptsPath = "/libs/";
-    
+
         console.log(path);
         readUrl(path);
     }, [cid]);
@@ -53,11 +53,9 @@ const MonoclePage = () => {
     }
 
     return (
-        <>
-
-
+        <div style={{ height: "100vh" }}>
             <Leitor title={name} />
-        </>
+        </div>
     )
 }
 
