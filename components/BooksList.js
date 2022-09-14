@@ -38,6 +38,7 @@ class BooksList extends Component {
           <Link href={url}>
             <a className={style.download}>Read</a>
           </Link>
+          {book.extension}
         </div>
       </div>
     );

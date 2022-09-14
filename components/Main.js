@@ -34,8 +34,29 @@ class Main extends Component {
       query: userInput,
       count: 10
     };
-
-    fetch("/api/hello")
+    /*
+    (async () => {
+      const rawResponse = await fetch('https://httpbin.org/post', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({a: 1, b: 'Textual content'})
+      });
+      const content = await rawResponse.json();
+    
+      console.log(content);
+    })();
+    */
+    fetch("/api/search",{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+      ,body: JSON.stringify({query: userInput})
+      })
       .then(response => {
         // handle the response
 
@@ -61,34 +82,6 @@ class Main extends Component {
           });
         } else console.error(err);
       });
-
-
-
-    /*
-      libgen.search(options, (err, data) => {
-    
-          if (err) {
-            console.log(err);
-            if (err.message.includes("No results for")) {
-              this.setState({
-                books: [],
-                loading: false,
-                noResults: true
-              });
-            } else console.error(err);
-          } 
-          
-          else {
-            this.setState({
-              books: this.cleanDups(data),
-              loading: false,
-              noResults: false
-            });
-          }
-    
-        }
-    
-        );*/
 
   }
 

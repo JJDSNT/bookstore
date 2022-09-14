@@ -15,20 +15,22 @@ class ApiClient {
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     // Process a POST request
-  } else {
-    //res.status(200).json({ name: 'John Doe' })
     const options = {
       mirror: 'http://gen.lib.rus.ec',
-      query: 'cats',
+      query: req.body.query,
       count: 5,
       sort_by: 'year',
       reverse: true
     }
+    //console.log(req.body.query);
+    //console.log(options);
     try {
       const dados = await new ApiClient().search(options)
       res.json(dados);
     } catch (e) {
       console.log(e);
     };
+  } else {
+    res.status(404).json({ error: 'Verb not allowed' })
   }
 }
