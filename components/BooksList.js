@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Link from 'next/link'
-import Image from 'next/image'
 import style from "./BooksList.module.css";
 
 
@@ -14,6 +13,7 @@ class BooksList extends Component {
     let title = book.title;
     let author = book.author;
     let url = `/read/${book.ipfs_cid}?name=${book.title}`;
+    let url2 = `/monocle/${book.ipfs_cid}?name=${book.title}`;
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;
     }
@@ -39,6 +39,9 @@ class BooksList extends Component {
           <Link href={url}>
             <a className={style.download}>Read</a>
           </Link>
+          <Link href={url2}>
+            <a className={style.download}>Read monocle</a>
+          </Link>
           {book.extension}
         </div>
       </div>
@@ -47,9 +50,10 @@ class BooksList extends Component {
 
   render() {
     return (
-      <div className={style.booksContainer}>
-        {this.props.books.map(this.createBook)}
-      </div>
+        <div className={style.booksContainer}>
+          {this.props.books.map(this.createBook)}
+          <div>incluir paginação?</div>
+        </div>
     );
   }
 }

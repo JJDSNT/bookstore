@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const options = {
       mirror: 'http://gen.lib.rus.ec',
       query: req.body.query,
-      count: 5,
+      count: 6,
       sort_by: 'year',
       reverse: true,
       extension: 'pdf'

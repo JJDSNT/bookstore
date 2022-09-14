@@ -64,7 +64,7 @@ class Main extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        //console.log(data);
         this.setState({
           books: this.cleanDups(data),
           loading: false,
