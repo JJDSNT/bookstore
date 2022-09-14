@@ -51,8 +51,10 @@ function Leitor(props) {
             <Script src="../../libs/monocore.js" strategy="beforeInteractive" />
             <Script src="../../libs/monoctrl.js" strategy="beforeInteractive" />
             <Script src="../../libs/efm.js" strategy="beforeInteractive" />
-            <h1>{props.title}</h1>
+
             <div id="reader" />
+            <h1>{props.title}</h1>            
+
             <style global jsx>{`
       /*===========================================================================
 
@@ -420,8 +422,8 @@ h1 {
     text-align: center;
 }
 #reader {
-    width: 95vw;
-    height: 90vh;
+    width: 450px;
+    height: 650px;
     border: 1px solid black;
     margin: 0 auto;
     background: white;

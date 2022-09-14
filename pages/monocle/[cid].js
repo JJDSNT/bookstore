@@ -53,9 +53,7 @@ const MonoclePage = () => {
     }
 
     return (
-        <div style={{ height: "100vh" }}>
-            <Leitor title={name} />
-        </div>
+        <Leitor title={name} />
     )
 }
 
