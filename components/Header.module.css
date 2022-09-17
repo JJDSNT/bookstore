@@ -7,7 +7,19 @@
 
 .logo {
   margin-left: 2%;
-  width: calc(150px + 15%);
+  width: 80px;
+  background-image: url('/images/readMoreLogo.svg');
+  background-repeat:no-repeat;
+  background-position: left top;
+  padding: 2px;
+}
+
+
+@media (min-width: 600px) {
+  .logo {
+    width: calc(200px + 15%);
+    background-image: url('/images/readmoreFullLogo.svg');
+  }
 }
 
 .searchContainer {

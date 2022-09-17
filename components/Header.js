@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Image from 'next/future/image'
 import style from "./Header.module.css";
-import Logoteste from '../assets/readmoreFullLogo.svg'
+import Logofull from '../assets/readmoreFullLogo.svg'
 
 class Header extends Component {
   constructor(props) {
@@ -36,11 +36,11 @@ class Header extends Component {
   }
 
   getStyle(state) { if (!state) return style.hidden; else return style.error }
-
+//<Image className={style.logo} src={Logofull} alt="Logo" />
   render() {
     return (
       <div className={style.header}>
-        <Image className={style.logo} src={Logoteste} alt="Logo" />
+        <div className={style.logo}>&nbsp;<br />&nbsp;</div>
         <div className={style.searchContainer}>
           <form className={style.searchBar} onSubmit={this.search}>
             <input
