@@ -14,18 +14,18 @@ export default function Home() {
 
         <meta name="referrer" content="no-referrer" />
 
-        <meta property="og:url" content="https://github.com/JJDSNT/bookstore" />
+        <meta property="og:url" content="https://bookstore-gamma.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Bookstore" />
         <meta property="og:description" content="web ePub reader." />
-        <meta property="og:image" content="https://repository-images.githubusercontent.com/535483255/2dcf1529-9f36-4cb5-9bbd-156039616007" />
+        <meta property="og:image" content="/images/bookstore.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="github.com" />
-        <meta property="twitter:url" content="https://github.com/JJDSNT/bookstore" />
+        <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
+        <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/" />
         <meta name="twitter:title" content="Bookstore" />
         <meta name="twitter:description" content="web ePub reader." />
-        <meta name="twitter:image" content="https://repository-images.githubusercontent.com/535483255/2dcf1529-9f36-4cb5-9bbd-156039616007" />
+        <meta name="twitter:image" content="/images/bookstore.jpg" />
       </Head>
       <Script src="https://kit.fontawesome.com/c7243fd47d.js" />
       <Main />
