@@ -8,7 +8,7 @@ import { ReactReader } from "react-reader"
 const BookReaderPage = () => {
     const router = useRouter()
     const { cid, name } = router.query
-    let path ='';
+    let path =`https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
     useEffect(() => {
         if (!cid) {
             return;
