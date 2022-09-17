@@ -18,16 +18,23 @@ export default async function handler(req, res) {
     const options = {
       mirror: 'http://gen.lib.rus.ec',
       query: req.body.query,
-      count: 6,
+      count: 50,
       sort_by: 'year',
-      reverse: true,
-      extension: 'pdf'
+      reverse: true
     }
+    //offset: 0 //pagination
     //console.log(req.body.query);
     //console.log(options);
     try {
-      const dados = await new ApiClient().search(options)
-      res.json(dados);
+      const dados = await new ApiClient().search(options);
+      //console.log("dados: "+dados);
+      let resultado = dados;
+      if (req.body.extension){
+        resultado = dados.filter(function (item) {
+          return item.extension == req.body.extension;
+        });
+      }
+      res.json(resultado);
     } catch (e) {
       console.log(e);
     };

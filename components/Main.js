@@ -18,7 +18,7 @@ class Main extends Component {
     return [...new Set(array)];
   }
 
-  setBooks(userInput) {
+  setBooks(userInput,userExtension) {
 
     this.setState({
       books: [],
@@ -55,7 +55,7 @@ class Main extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-      ,body: JSON.stringify({query: userInput})
+      ,body: JSON.stringify({query: userInput, extension:userExtension})
       })
       .then(response => {
         // handle the response

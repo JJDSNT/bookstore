@@ -7,9 +7,15 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: false
+      error: false,
+      extension:"epub"
     };
     this.search = this.search.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({extension: e.target.value });
   }
 
   search(e) {
@@ -21,7 +27,7 @@ class Header extends Component {
       this.setState({
         error: false
       });
-      this.props.updateBooks(this._inputElement.value);
+      this.props.updateBooks(this._inputElement.value,this.state.extension);
     } else {
       this.setState({
         error: true
@@ -43,9 +49,9 @@ class Header extends Component {
               type="text"
               placeholder="Find a book..."
             />
-            <select>
-              <option defaultValue value="ePub">ePub</option>
-              <option value="PDF">PDF</option>
+            <select onChange={this.handleChange}>
+              <option defaultValue value="epub">ePub</option>
+              <option value="pdf">PDF</option>
               <option value="">All</option>
             </select>
             <button className={style.searchButton} type="submit">
