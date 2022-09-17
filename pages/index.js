@@ -11,7 +11,7 @@ export default function Home() {
         <title>Bookstore</title>
         <meta name="description" content="A web ePub reader" />
         <link rel="icon" href="/favicon.ico" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="referrer" content="no-referrer" />
 
         <meta property="og:url" content="https://bookstore-gamma.vercel.app/" />
@@ -26,7 +26,11 @@ export default function Home() {
         <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/" />
         <meta name="twitter:title" content="Bookstore" />
         <meta name="twitter:description" content="web ePub reader." />
-        <meta name="twitter:image" content="/images/bookstore.jpg" />
+        <meta name="twitter:image" content="https://bookstore-gamma.vercel.app/images/bookstore.jpg" />
+
+        <link rel="manifest" href="/manifest.json" />
+
+
       </Head>
       <Script src="https://kit.fontawesome.com/c7243fd47d.js" />
       <Main />
