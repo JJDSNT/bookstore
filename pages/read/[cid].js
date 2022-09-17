@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ReactReader } from "react-reader"
@@ -9,8 +9,14 @@ const BookReaderPage = () => {
     const router = useRouter()
     const { cid, name } = router.query
 
-//useeffect para atualizar o cid?
-    let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+    useEffect(() => {
+        if (!cid) {
+            return;
+        }
+        let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+    }, [])
+    //useeffect para atualizar o cid?
+
     let teste = `https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub`;
 
     // And your own state logic to persist state
@@ -24,10 +30,10 @@ const BookReaderPage = () => {
         <div style={{ height: "100vh" }}>
 
             <ReactReader
+                url={path}
+                swipeable={true}
                 location={location}
                 locationChanged={locationChanged}
-                url={path}
-                title={name}
             />
             <div style={{ float: "right" }}>
                 <Link href="/">Back to home</Link>
