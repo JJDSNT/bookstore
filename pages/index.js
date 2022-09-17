@@ -11,7 +11,8 @@ export default function Home() {
         <title>Bookstore</title>
         <meta name="description" content="A web ePub reader" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
         <meta name="referrer" content="no-referrer" />
 
         <meta property="og:url" content="https://bookstore-gamma.vercel.app/" />
