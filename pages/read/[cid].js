@@ -8,12 +8,12 @@ import { ReactReader } from "react-reader"
 const BookReaderPage = () => {
     const router = useRouter()
     const { cid, name } = router.query
-
+    let path ='';
     useEffect(() => {
         if (!cid) {
             return;
         }
-        let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+        path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
     }, [cid])
     //useeffect para atualizar o cid?
 
