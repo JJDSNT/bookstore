@@ -14,7 +14,7 @@ const BookReaderPage = () => {
             return;
         }
         let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
-    }, [])
+    }, [cid])
     //useeffect para atualizar o cid?
 
     let teste = `https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub`;

@@ -38,7 +38,7 @@ const MonoclePage = () => {
 
         console.log(path);
         readUrl(path);
-    }, []);
+    }, [cid]);
 
 
 
