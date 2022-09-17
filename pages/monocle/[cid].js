@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react"
 import Link from 'next/link'
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import Leitor from "../../components/Monocle/Leitor"
 
@@ -18,23 +19,26 @@ const MonoclePage = () => {
     //useeffect para atualizar o cid?
 
     let teste = `https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub`;
-    let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+
     //[path, setPath] = useState(path);
 
     useEffect(() => {
         if (!cid) {
             return;
         }
+        let path = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
         // This is some basic code for using Monocle with EFM.
         // First, we need to tell zip.js where to find its accessory files.
-        if (zip === undefined) {
+        if (zip ==undefined) {
+            console.log("caramba");
             return;
+        } else {
+            zip.workerScriptsPath = "/libs/";
         }
-        zip.workerScriptsPath = "/libs/";
 
         console.log(path);
         readUrl(path);
-    }, [cid]);
+    }, []);
 
 
 
@@ -53,7 +57,13 @@ const MonoclePage = () => {
     }
 
     return (
-        <Leitor title={name} />
+        <>
+            <Script src="../../libs/zip.js" strategy="beforeInteractive" />
+            <Script src="../../libs/monocore.js" strategy="beforeInteractive" />
+            <Script src="../../libs/monoctrl.js" strategy="beforeInteractive" />
+            <Script src="../../libs/efm.js" strategy="beforeInteractive" />
+            <Leitor title={name} />
+        </>
     )
 }
 

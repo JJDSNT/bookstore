@@ -4,6 +4,8 @@ class ApiClient {
   async search(options) {
     try {
       const data = await libgen.search(options)
+      //libgen.search(options, (err, data) => {
+      console.log("eu heim "+data);
       return data
     }
     catch (err) {
@@ -27,13 +29,17 @@ export default async function handler(req, res) {
     //console.log(options);
     try {
       const dados = await new ApiClient().search(options);
-      //console.log("dados: "+dados);
+      console.log("dados: "+dados);
+
       let resultado = dados;
-      if (req.body.extension){
-        resultado = dados.filter(function (item) {
-          return item.extension == req.body.extension;
-        });
+      if (req.body.extension && dados.lengh > 0) {
+        if (dados.constructor == Array) {
+          resultado = dados.filter(function (item) {
+            return item.extension == req.body.extension;
+          })
+        };
       }
+      console.log("resultado"+resultado);
       res.json(resultado);
     } catch (e) {
       console.log(e);

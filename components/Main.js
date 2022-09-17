@@ -59,12 +59,12 @@ class Main extends Component {
       })
       .then(response => {
         // handle the response
-
+        //handle no result error?
         //console.log(response.json());
         return response.json();
       })
       .then(data => {
-        //console.log(data);
+        console.log(data);
         this.setState({
           books: this.cleanDups(data),
           loading: false,

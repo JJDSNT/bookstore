@@ -2436,7 +2436,7 @@ Monocle.Reader = function (node, bookData, options, onLoadCallback) {
 
 
 
-Monocle.Reader.SUPPORT_URL = 'http://unsupported.monoclejs.com';
+Monocle.Reader.SUPPORT_URL = 'https://unsupported.monoclejs.com';
 Monocle.Reader.RESIZE_DELAY = 100;
 Monocle.Reader.DEFAULT_SYSTEM_ID = 'RS:monocle'
 Monocle.Reader.DEFAULT_CLASS_PREFIX = 'monelem_'
