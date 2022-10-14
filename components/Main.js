@@ -18,7 +18,7 @@ class Main extends Component {
     return [...new Set(array)];
   }
 
-  setBooks(userInput,userExtension) {
+  setBooks(userInput, userExtension) {
 
     this.setState({
       books: [],
@@ -26,37 +26,21 @@ class Main extends Component {
       noResults: false
     });
 
-
-
     let options = {
       mirror: "/api/hello",
       //mirror: "http://gen.lib.rus.ec",
       query: userInput,
       count: 10
     };
-    /*
-    (async () => {
-      const rawResponse = await fetch('https://httpbin.org/post', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({a: 1, b: 'Textual content'})
-      });
-      const content = await rawResponse.json();
-    
-      console.log(content);
-    })();
-    */
-    fetch("/api/search",{
+
+    fetch("/api/search", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-      ,body: JSON.stringify({query: userInput, extension:userExtension})
-      })
+      , body: JSON.stringify({ query: userInput, extension: userExtension })
+    })
       .then(response => {
         // handle the response
         //handle no result error?
@@ -64,16 +48,21 @@ class Main extends Component {
         return response.json();
       })
       .then(data => {
+        let empty = false;
+        console.log(Array.isArray(data));
+        if (Array.isArray(data)) { data = this.cleanDups(data) } else {
+          data = [];
+          empty = true
+        };
         console.log(data);
         this.setState({
-          books: this.cleanDups(data),
+          books: data,
           loading: false,
-          noResults: false
+          noResults: empty
         });
 
       })
       .catch(err => {
-        console.log(err);
         if (err.message.includes("No results for")) {
           this.setState({
             books: [],

@@ -27,8 +27,34 @@ const BookReaderPage = () => {
     }
 
     return (
+        
         <div style={{ height: "100vh" }}>
+      <Head>
+        <title>{{ name }} - Bookstore</title>
+        <meta name="description" content="{{name}}}}" />
+        <link rel="icon" href="/favicon.ico" />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+        <meta name="referrer" content="no-referrer" />
+
+        <meta property="og:url" content="https://bookstore-gamma.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Bookstore" />
+        <meta property="og:description" content="web ePub reader." />
+        <meta property="og:image" content="/images/bookstore.jpg" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@flickr" />
+        <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
+        <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/" />
+        <meta name="twitter:title" content="Bookstore" />
+        <meta name="twitter:description" content="web ePub reader." />
+        <meta name="twitter:image" content="https://bookstore-gamma.vercel.app/images/bookstore.jpg" />
+
+        <link rel="manifest" href="/manifest.json" />
+
+
+      </Head>
             <ReactReader
                 url={path}
                 swipeable={true}
