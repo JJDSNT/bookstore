@@ -13,7 +13,7 @@ class BooksList extends Component {
     let title = book.title;
     let author = book.author;
     let url = `/read/${book.ipfs_cid}?name=${book.title}`;
-    let url2 = `/monocle/${book.ipfs_cid}?name=${book.title}`;
+
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;
     }
@@ -38,9 +38,6 @@ class BooksList extends Component {
           </a>
           <Link href={url}>
             <a className={style.download}>Read</a>
-          </Link>
-          <Link href={url2}>
-            <a className={style.download}>Read monocle</a>
           </Link>
           {book.extension}
         </div>
