@@ -28,16 +28,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
       console.log('Retornou: ' + data.length);
       const uniques = libgen.utils.clean.dups(data);
-      console.log('Retornando ' + uniques.length + ' unicos');
-
+      console.log('Retornou ' + uniques.length + ' unicos');
       let resultado = data;
-      if (req.body.extension && data.length > 0) {
-        if (Array.isArray(data)) {
-          resultado = data.filter(function (item) {
-            return item.extension == req.body.extension;
-          })
-        };
+      if (req.body.extension) {
+        resultado = data.filter(function (item) {
+          return item.extension == req.body.extension;
+        })
+      console.log('Retornando ' + resultado.length + ' filtrados');
       }
+      console.log('Retornando '+resultado.length);
       return res.json(resultado);
     } catch (e) {
       console.log("Erro: "+e);
