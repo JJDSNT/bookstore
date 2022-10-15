@@ -49,7 +49,7 @@ const BookReaderPage = () => {
                 <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
                 <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta name="twitter:title" content="Bookstore" />
-                <meta name="twitter:description" content="c{name}" />
+                <meta name="twitter:description" content={name} />
                 <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" />
             </Head>
             <div style={{ height: "100vh" }}>
