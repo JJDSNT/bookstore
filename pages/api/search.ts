@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const data = await libgen.search(options);
       if(Object.keys(data).length<1){
-        console.log('Empty');
+        console.log('Retornou Empty');
         return res.status(200).json({ error: 'Empty response' })
       }
       console.log('Retornou: ' + data.length);
