@@ -31,7 +31,7 @@ const BookReaderPage = () => {
     return (
         <>
             <Head>
-                <title>{name}- Bookstore</title>
+                <title>{name} - Bookstore</title>
                 <meta name="description" content="{name}" />
                 <link rel="icon" href="/favicon.ico" />
 
@@ -41,16 +41,16 @@ const BookReaderPage = () => {
                 <meta property="og:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Bookstore" />
-                <meta property="og:description" content="web ePub reader." />
-                <meta property="og:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" />
+                <meta property="og:description" content="{name}" />
+                <meta property="og:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" key="ogimage" />
 
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:site" content="@flickr" />
                 <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
                 <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta name="twitter:title" content="Bookstore" />
-                <meta name="twitter:description" content="web ePub reader." />
-                <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" />
+                <meta name="twitter:description" content="{name}" />
+                <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" />
             </Head>
             <div style={{ height: "100vh" }}>
                 <ReactReader
@@ -61,7 +61,6 @@ const BookReaderPage = () => {
                 />
                 <div style={{ float: "right" }}>
                     <Link href="/">Back to home</Link>
-                    aqui: {asPath}
                 </div>
             </div>
         </>

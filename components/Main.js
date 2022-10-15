@@ -26,12 +26,12 @@ class Main extends Component {
       noResults: false
     });
 
-    let options = {
-      mirror: "/api/hello",
-      //mirror: "http://gen.lib.rus.ec",
-      query: userInput,
-      count: 10
-    };
+    // let options = {
+    //   mirror: "/api/hello",
+    //   //mirror: "http://gen.lib.rus.ec",
+    //   query: userInput,
+    //   count: 10
+    // };
 
     fetch("/api/search", {
       method: 'POST',
