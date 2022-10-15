@@ -2,31 +2,15 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const libgen = require('libgen');
 
-class ApiClient {
-
-  static async search(options) {
-    try {
-      const data = await libgen.search(options);
-      console.log('Retornou: ' + data.length);
-      const uniques = libgen.utils.clean.dups(data);
-      console.log('Retornando ' + uniques.length + ' unicos');
-      return uniques
-    }
-    catch (err) {
-      console.log('erro: ' + err)
-    }
-  }
-};
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     // Process a POST request
     console.clear();
-    console.log("Requisição recebida.")
-    const urlString = await libgen.mirror()
-    console.log(`${urlString} is currently fastest`)
+    console.log("Requisição recebida: "+JSON.stringify(req.body));
+    const urlString = await libgen.mirror();
+    console.log(`${urlString} is currently fastest`);
     const options = {
-      mirror: 'http://gen.lib.rus.ec',
+      mirror: urlString,
       query: req.body.query,
       count: 50,
       sort_by: 'year',
@@ -37,21 +21,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //console.log(req.body.query);
     //console.log(options);
     try {
-      const dados = await ApiClient.search(options);
-      //console.log('dados: ' + dados);
-      let resultado = dados;
-      if (req.body.extension && dados.length > 0) {
-        if (Array.isArray(dados)) {
-          resultado = dados.filter(function (item) {
+      const data = await libgen.search(options);
+      if(Object.keys(data).length<1){
+        console.log('Empty');
+        return res.status(200).json({ error: 'Empty response' })
+      }
+      console.log('Retornou: ' + data.length);
+      const uniques = libgen.utils.clean.dups(data);
+      console.log('Retornando ' + uniques.length + ' unicos');
+
+      let resultado = data;
+      if (req.body.extension && data.length > 0) {
+        if (Array.isArray(data)) {
+          resultado = data.filter(function (item) {
             return item.extension == req.body.extension;
           })
         };
       }
-      res.json(resultado);
+      return res.json(resultado);
     } catch (e) {
-      console.log(e);
+      console.log("Erro: "+e);
     };
   } else {
-    res.status(404).json({ error: 'Verb not allowed' })
+    return res.status(404).json({ error: 'Verb not allowed' })
   }
 }
