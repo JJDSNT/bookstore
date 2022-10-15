@@ -32,7 +32,7 @@ const BookReaderPage = () => {
         <>
             <Head>
                 <title>{name} - Bookstore</title>
-                <meta name="description" content="a{name}" />
+                <meta name="description" content={name} />
                 <link rel="icon" href="/favicon.ico" />
 
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
@@ -41,7 +41,7 @@ const BookReaderPage = () => {
                 <meta property="og:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Bookstore" />
-                <meta property="og:description" content="b{name}" />
+                <meta property="og:description" content={name} />
                 <meta property="og:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" key="ogimage" />
 
                 <meta name="twitter:card" content="summary" />
@@ -49,7 +49,7 @@ const BookReaderPage = () => {
                 <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
                 <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta name="twitter:title" content="Bookstore" />
-                <meta name="twitter:description" content={name} />
+                <meta name="twitter:description" content={name} key="desc"/>
                 <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" />
             </Head>
             <div style={{ height: "100vh" }}>
