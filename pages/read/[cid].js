@@ -12,17 +12,17 @@ const BookReaderPage = ({name,cid}) => {
     const { asPath } = useRouter();
 
     const webpagetile = name +' BookStore';
-    const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
-
+    //const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
+    const origin = 'https://bookstore-gamma.vercel.app/';
     const fullPath = `${origin}${asPath}`;
 
-    let url = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+    let url = `https://ipfs.io/ipfs/${cid}?filename=book.epub`;
     
     useEffect(() => {
         if (!cid) {
             return;
         }
-        url = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+        url = `https://ipfs.io/ipfs/${cid}?filename=book.epub`;
     }, [cid])
     //useeffect para atualizar o cid?
 
