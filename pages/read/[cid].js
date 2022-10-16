@@ -13,7 +13,7 @@ const BookReaderPage = ({ name, cid, coverid }) => {
 
     const webpagetile = 'BookStore - '+name;
     //const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
-    const origin = 'https://bookstore-gamma.vercel.app/';
+    const origin = 'https://bookstore-gamma.vercel.app';
     const fullPath = `${origin}${asPath}`;
     //https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg
     let img = `https://libgen.rs/covers/${coverid}`;
