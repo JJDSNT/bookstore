@@ -12,7 +12,7 @@ class BooksList extends Component {
   createBook(book) {
     let title = book.title;
     let author = book.author;
-    let url = `/read/${book.ipfs_cid}?name=${book.title}`;
+    let url = `/read/${book.ipfs_cid}?name=${book.title}&coverid=${book.coverurl}`;
 
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;

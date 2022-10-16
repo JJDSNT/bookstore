@@ -6,7 +6,7 @@ import { ReactReader } from "react-reader";
 
 //href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${book.title}.${book.extension}`}
 
-const BookReaderPage = ({ name, cid }) => {
+const BookReaderPage = ({ name, cid, coverid }) => {
 
     const router = useRouter();
     const { asPath } = useRouter();
@@ -15,19 +15,11 @@ const BookReaderPage = ({ name, cid }) => {
     //const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
     const origin = 'https://bookstore-gamma.vercel.app/';
     const fullPath = `${origin}${asPath}`;
+    //https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg
+    let img = `https://libgen.rs/covers/${coverid}`;
 
-    let url = `https://ipfs.io/ipfs/${cid}?filename=book.epub`;
-
-    // useEffect(() => {
-    //     if (!cid) {
-    //         return;
-    //     }
-    //     url = `https://ipfs.io/ipfs/${cid}?filename=book.epub`;
-    // }, [cid])
-    //useeffect para atualizar o cid?
-
-    //let teste = `https://ipfs.io/ipfs/bafykbzaceaatvijwreyc6yyarhkq7cpc4nnhxgvamy2xc7argn33ewztqksnq?filename=%28Oxford%20History%20of%20Modern%20Europe%29%20Paul%20W.%20Schroeder%20-%20The%20Transformation%20of%20European%20Politics%201763-1848-Oxford%20University%20Press%2C%20USA%20%281994%29.epub`;
-
+    let url = `https://ipfs.io/ipfs/${cid}?filename=Book.epub`;
+    
     // And your own state logic to persist state
     const [location, setLocation] = useState(null)
     const locationChanged = (epubcifi) => {
@@ -49,14 +41,14 @@ const BookReaderPage = ({ name, cid }) => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Bookstore" />
                 <meta property="og:description" content={name} />
-                <meta property="og:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" key="ogimage" />
+                <meta property="og:image" content={img} key="ogimage" />
 
                 <meta name="twitter:card" content="summary" />
                 <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
                 <meta property="twitter:url" content={fullPath} />
                 <meta name="twitter:title" content="Bookstore" />
                 <meta name="twitter:description" content={name} key="desc" />
-                <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" />
+                <meta name="twitter:image" content={img} />
             </Head>
             <div style={{ height: "100vh" }}>
                 <ReactReader
@@ -74,7 +66,7 @@ const BookReaderPage = ({ name, cid }) => {
 }
 
 BookReaderPage.getInitialProps = async (ctx) => {
-    return { name: ctx.query.name, cid: ctx.query.cid }
+    return { name: ctx.query.name, cid: ctx.query.cid. coverid= ctx.query.coverid }
 }
 
 export default BookReaderPage;

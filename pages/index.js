@@ -22,7 +22,6 @@ export default function Home() {
         <meta property="og:image" content="/images/bookstore.jpg" />
 
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@flickr" />
         <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
         <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/" />
         <meta name="twitter:title" content="Bookstore" />
