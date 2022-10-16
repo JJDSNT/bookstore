@@ -12,6 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const urlString = await libgen.mirror();
       console.log(`${urlString} is currently fastest`);
+      //http://gen.lib.rus.ec
       const options = {
         mirror: urlString,
         query: req.body.query,

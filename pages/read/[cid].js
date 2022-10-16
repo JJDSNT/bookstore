@@ -6,15 +6,16 @@ import { ReactReader } from "react-reader";
 
 //href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${book.title}.${book.extension}`}
 
-const BookReaderPage = ({name,cid,fullPath}) => {
-
-    const webpagetile = name +' BookStore';
-    //const urlPath = 
-
+const BookReaderPage = ({name,cid}) => {
 
     const router = useRouter();
-    const { asPath } = useRouter()
-//    const { cid, name } = router.query
+    const { asPath } = useRouter();
+
+    const webpagetile = name +' BookStore';
+    const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
+
+    const fullPath = `${origin}${asPath}`;
+
     let url = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
     
     useEffect(() => {
@@ -74,7 +75,7 @@ const BookReaderPage = ({name,cid,fullPath}) => {
 }
 
 BookReaderPage.getInitialProps = async (ctx) => {    
-    return { name: ctx.query.name, cid: ctx.query.cid, fullPath: ctx.req.headers.host+ctx.asPath }
+    return { name: ctx.query.name, cid: ctx.query.cid }
 }
 
 export default BookReaderPage;
