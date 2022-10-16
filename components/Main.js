@@ -49,12 +49,12 @@ class Main extends Component {
       })
       .then(data => {
         let empty = false;
-        console.log(Array.isArray(data));
+        //console.log(Array.isArray(data));
         if (Array.isArray(data)) { data = this.cleanDups(data) } else {
           data = [];
           empty = true
         };
-        console.log(data);
+        //console.log(data);
         this.setState({
           books: data,
           loading: false,

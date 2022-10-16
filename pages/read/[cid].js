@@ -66,7 +66,7 @@ const BookReaderPage = ({ name, cid, coverid }) => {
 }
 
 BookReaderPage.getInitialProps = async (ctx) => {
-    return { name: ctx.query.name, cid: ctx.query.cid. coverid= ctx.query.coverid }
+    return { name: ctx.query.name, cid: ctx.query.cid, coverid: ctx.query.coverid }
 }
 
 export default BookReaderPage;

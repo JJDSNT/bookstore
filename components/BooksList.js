@@ -12,7 +12,9 @@ class BooksList extends Component {
   createBook(book) {
     let title = book.title;
     let author = book.author;
-    let url = `/read/${book.ipfs_cid}?name=${book.title}&coverid=${book.coverurl}`;
+    let cover = encodeURIComponent(book.coverurl);
+    //encodeURIComponent
+    let url = `/read/${book.ipfs_cid}?coverid=`+cover+`&name=${book.title}`;
 
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;
