@@ -6,11 +6,17 @@ import { ReactReader } from "react-reader";
 
 //href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${book.title}.${book.extension}`}
 
-const BookReaderPage = () => {
+const BookReaderPage = ({name,cid,fullPath}) => {
+
+    const webpagetile = name +' BookStore';
+    //const urlPath = 
+
+
     const router = useRouter();
     const { asPath } = useRouter()
-    const { cid, name } = router.query
+//    const { cid, name } = router.query
     let url = `https://ipfs.io/ipfs/${cid}?filename=teste.epub`;
+    
     useEffect(() => {
         if (!cid) {
             return;
@@ -31,14 +37,14 @@ const BookReaderPage = () => {
     return (
         <>
             <Head>
-                <title>{name} - Bookstore</title>
+                <title>{ webpagetile }</title>
                 <meta name="description" content={name} />
                 <link rel="icon" href="/favicon.ico" />
 
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
                 <meta name="referrer" content="no-referrer" />
 
-                <meta property="og:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
+                <meta property="og:url" content={ fullPath } />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Bookstore" />
                 <meta property="og:description" content={name} />
@@ -49,7 +55,7 @@ const BookReaderPage = () => {
                 <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
                 <meta property="twitter:url" content="https://bookstore-gamma.vercel.app/{asPath}" />
                 <meta name="twitter:title" content="Bookstore" />
-                <meta name="twitter:description" content={name} key="desc"/>
+                <meta name="twitter:description" content={name} key="desc" />
                 <meta name="twitter:image" content="https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg" rel="noreferrer" />
             </Head>
             <div style={{ height: "100vh" }}>
@@ -65,6 +71,10 @@ const BookReaderPage = () => {
             </div>
         </>
     )
+}
+
+BookReaderPage.getInitialProps = async (ctx) => {    
+    return { name: ctx.query.name, cid: ctx.query.cid, fullPath: ctx.req.headers.host+ctx.asPath }
 }
 
 export default BookReaderPage;
