@@ -38,7 +38,8 @@ class Main extends Component {
       noResults: false,
       empty: true,
       offset: offset,
-      pagination: false
+      pagination: false,
+      paginar: true
     });
 
     fetch("/api/search", {
@@ -56,6 +57,9 @@ class Main extends Component {
         return response.json();
       })
       .then(data => {
+        if(data.paginar===false){
+          this.setState({paginar:false})
+        }
         let empty = false;
         //console.log(Array.isArray(data));
         if (Array.isArray(data)) { data = this.cleanDups(data) } else {
@@ -94,7 +98,8 @@ class Main extends Component {
         <Pagination 
         pagination={this.state.pagination}
         offset={this.state.offset}
-        paginationSearch={this.paginationSearch.bind(this)} />
+        paginationSearch={this.paginationSearch.bind(this)} 
+        paginar={this.state.paginar} />
         <BooksList books={this.state.books} />
         <Loading
           loading={this.state.loading}
@@ -104,6 +109,7 @@ class Main extends Component {
         <Pagination 
         pagination={this.state.pagination}
         offset={this.state.offset}
+        paginar={this.state.paginar}
         paginationSearch={this.paginationSearch.bind(this)} />
       </div>
     );

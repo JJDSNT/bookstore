@@ -5,3 +5,7 @@
     justify-items: center;
     align-items: center;
   }
+
+.btn {
+  cursor: pointer;
+}
