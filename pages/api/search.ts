@@ -15,15 +15,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       //http://gen.lib.rus.ec
       const options = {
         mirror: urlString,
-        query: req.body.query,
-        count: 50,
-        sort_by: 'year',
-        reverse: true
+        query: req.body.query
       }
+      // reverse, count, order
+      //console.log(req.body.query);
       //console.log(req.body.extension);
       //offset: 0 //pagination
-      //console.log(req.body.query);
-      //console.log(options);
+      console.log(options);
       try {
         const data = await libgen.search(options);
         if (Object.keys(data).length < 1) {
