@@ -25,7 +25,7 @@ function BookHead({name, coverid}) {
             <meta property="og:type" content="website" />
             <meta property="og:title" content="Bookstore" />
             <meta property="og:description" content={name} />
-            <meta property="og:image" itemprop="image" content={img} key="ogimage" />
+            <meta property="og:image" content={img} key="ogimage" />
 
             <meta name="twitter:card" content="summary" />
             <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />

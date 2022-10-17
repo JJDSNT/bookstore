@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header.js";
 import BooksList from "./BooksList.js";
 import Loading from "./Loading";
-
+import Pagination from "./Pagination.js";
 
 class Main extends Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class Main extends Component {
     this.state = {
       books: [],
       loading: false,
-      noResults: false
+      noResults: false,
+      offset: 0
     };
   }
 
@@ -18,12 +19,14 @@ class Main extends Component {
     return [...new Set(array)];
   }
 
-  setBooks(userInput, userExtension) {
+  setBooks(userInput, userExtension, offset) {
 
     this.setState({
       books: [],
       loading: true,
-      noResults: false
+      noResults: false,
+      empty: true,
+      offset: offset
     });
 
     fetch("/api/search", {
@@ -32,7 +35,7 @@ class Main extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-      , body: JSON.stringify({ query: userInput, extension: userExtension })
+      , body: JSON.stringify({ query: userInput, extension: userExtension, offset: offset })
     })
       .then(response => {
         // handle the response
@@ -51,7 +54,7 @@ class Main extends Component {
         this.setState({
           books: data,
           loading: false,
-          noResults: empty
+          noResults: false
         });
 
       })
@@ -74,12 +77,14 @@ class Main extends Component {
           updateBooks={this.setBooks.bind(this)}
           noResults={this.state.noResults}
         />
+        <Pagination offset={this.state.offset} />
         <BooksList books={this.state.books} />
         <Loading
           loading={this.state.loading}
           type="spinningBubbles"
           color="#375d96"
         />
+        <Pagination offset={this.state.offset} />
       </div>
     );
   }

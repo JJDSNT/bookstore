@@ -13,7 +13,7 @@ const BookReaderPage = ({ name, cid, coverid }) => {
         ...ReactReaderStyle,
         readerArea: {
           ...ReactReaderStyle.readerArea,
-          backgroundColor: '#f69435'
+          backgroundColor: '#fff'
         }
       }
 

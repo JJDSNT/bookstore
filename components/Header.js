@@ -8,14 +8,15 @@ class Header extends Component {
     super(props);
     this.state = {
       error: false,
-      extension:"epub"
+      extension: "epub",
+      offset: 10
     };
     this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    this.setState({extension: e.target.value });
+    this.setState({ extension: e.target.value });
   }
 
   search(e) {
@@ -27,7 +28,7 @@ class Header extends Component {
       this.setState({
         error: false
       });
-      this.props.updateBooks(this._inputElement.value,this.state.extension);
+      this.props.updateBooks(this._inputElement.value, this.state.extension, this.state.offset);
     } else {
       this.setState({
         error: true
@@ -36,20 +37,23 @@ class Header extends Component {
   }
 
   getStyle(state) { if (!state) return style.hidden; else return style.error }
-//<Image className={style.logo} src={Logofull} alt="Logo" />
+  //<Image className={style.logo} src={Logofull} alt="Logo" />
   render() {
     return (
       <div className={style.header}>
         <div className={style.logo}>&nbsp;<br />&nbsp;</div>
         <div className={style.searchContainer}>
           <form className={style.searchBar} onSubmit={this.search}>
+            <label htmlFor="isbn">ISBN</label>
+            <input id="isbn" type="radio"></input>
             <input
               ref={a => (this._inputElement = a)}
               className={style.searchInput}
               type="text"
               placeholder="Find a book..."
             />
-            <select onChange={this.handleChange}>
+            <label htmlFor="type">Type</label>
+            <select id="type" onChange={this.handleChange}>
               <option defaultValue value="epub">ePub</option>
               <option value="pdf">PDF</option>
               <option value="">All</option>

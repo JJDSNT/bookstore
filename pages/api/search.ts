@@ -8,20 +8,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Process a POST request
     console.clear();
     console.log("Requisição recebida: " + JSON.stringify(req.body));
-
+//req.body.offset
     try {
       const urlString = await libgen.mirror();
       console.log(`${urlString} is currently fastest`);
       //http://gen.lib.rus.ec
       const options = {
         mirror: urlString,
-        query: req.body.query
+        query: req.body.query,
+        offset: req.body.offset
       }
       // reverse, count, order
       //console.log(req.body.query);
       //console.log(req.body.extension);
       //offset: 0 //pagination
-      console.log(options);
+      //console.log(options);
       try {
         const data = await libgen.search(options);
         if (Object.keys(data).length < 1) {
@@ -33,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log('Retornou ' + uniques.length + ' unicos');
         let resultado = data;
         if (req.body.extension) {
-          resultado = data.filter(function (item) {
+          resultado = data.filter(function (item: { extension: string; }) {
             return item.extension == req.body.extension;
           })
           console.log('Retornando ' + resultado.length + ' filtrados');

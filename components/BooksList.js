@@ -14,7 +14,7 @@ class BooksList extends Component {
     let author = book.author;
     let cover = encodeURIComponent(book.coverurl);
     //encodeURIComponent
-    let url = `/read/${book.ipfs_cid}?coverid=`+cover+`&name=${book.title}`;
+    let url = `/read/${book.ipfs_cid}?coverid=` + cover + `&name=${book.title}`;
 
     if (book.title.length > 70) {
       title = `${book.title.slice(0, 70)}...`;
@@ -49,10 +49,9 @@ class BooksList extends Component {
 
   render() {
     return (
-        <div className={style.booksContainer}>
-          {this.props.books.map(this.createBook)}
-          <div>incluir paginação?</div>
-        </div>
+      <div className={style.booksContainer}>
+        {this.props.books.map(this.createBook)}
+      </div>
     );
   }
 }
