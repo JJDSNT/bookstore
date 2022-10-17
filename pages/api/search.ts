@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         query: req.body.query,
         offset: req.body.offset
       }
-      // reverse, count, order
+      // reverse, count, order, isbn
       //console.log(req.body.query);
       //console.log(req.body.extension);
       //offset: 0 //pagination
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const data = await libgen.search(options);
         if (Object.keys(data).length < 1) {
           console.log('Retornou Empty');
-          return res.status(200).json({ error: 'Empty response' })
+          return res.status(200).json({ error: 'Empty response', paginar: false })
         }
         console.log('Retornou: ' + data.length);
         const uniques = libgen.utils.clean.dups(data);

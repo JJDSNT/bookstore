@@ -11,22 +11,34 @@ class Main extends Component {
       books: [],
       loading: false,
       noResults: false,
-      offset: 0
+      offset: 0,
+      pagination: false,
+      query: "",
+      extension: ""
     };
   }
 
   cleanDups(array) {
     return [...new Set(array)];
+  }  
+
+  paginationSearch(offset) {
+    this.setBooks(this.state.query,this.state.extension,offset)
   }
 
   setBooks(userInput, userExtension, offset) {
+
+    this.setState({query:userInput});
+    this.setState({extension:userExtension});
+    this.setState({offset:offset});
 
     this.setState({
       books: [],
       loading: true,
       noResults: false,
       empty: true,
-      offset: offset
+      offset: offset,
+      pagination: false
     });
 
     fetch("/api/search", {
@@ -54,7 +66,8 @@ class Main extends Component {
         this.setState({
           books: data,
           loading: false,
-          noResults: false
+          noResults: false,
+          pagination: true
         });
 
       })
@@ -63,7 +76,8 @@ class Main extends Component {
           this.setState({
             books: [],
             loading: false,
-            noResults: true
+            noResults: true,
+            pagination: false
           });
         } else console.error(err);
       });
@@ -77,14 +91,20 @@ class Main extends Component {
           updateBooks={this.setBooks.bind(this)}
           noResults={this.state.noResults}
         />
-        <Pagination offset={this.state.offset} />
+        <Pagination 
+        pagination={this.state.pagination}
+        offset={this.state.offset}
+        paginationSearch={this.paginationSearch.bind(this)} />
         <BooksList books={this.state.books} />
         <Loading
           loading={this.state.loading}
           type="spinningBubbles"
           color="#375d96"
         />
-        <Pagination offset={this.state.offset} />
+        <Pagination 
+        pagination={this.state.pagination}
+        offset={this.state.offset}
+        paginationSearch={this.paginationSearch.bind(this)} />
       </div>
     );
   }
