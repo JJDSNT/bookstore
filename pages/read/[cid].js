@@ -2,22 +2,22 @@ import Head from 'next/head';
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactReader } from "react-reader";
+import { ReactReader, ReactReaderStyle } from "react-reader";
+import BookHead from '../../components/heads/BookHead';
 
 //href={`https://ipfs.io/ipfs/${book.ipfs_cid}?filename=${book.title}.${book.extension}`}
 
 const BookReaderPage = ({ name, cid, coverid }) => {
 
+    const ownStyles = {
+        ...ReactReaderStyle,
+        readerArea: {
+          ...ReactReaderStyle.readerArea,
+          backgroundColor: '#f69435'
+        }
+      }
+
     const router = useRouter();
-    const { asPath } = useRouter();
-
-    const webpagetile = 'BookStore - '+name;
-    //const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
-    const origin = 'https://bookstore-gamma.vercel.app';
-    const fullPath = `${origin}${asPath}`;
-    //https://libgen.rs/covers/3391000/015805d053b16b1248c1b28d906b84bb-g.jpg
-    let img = `https://libgen.rs/covers/${coverid}`;
-
     let url = `https://ipfs.io/ipfs/${cid}?filename=Book.epub`;
     
     // And your own state logic to persist state
@@ -29,33 +29,14 @@ const BookReaderPage = ({ name, cid, coverid }) => {
 
     return (
         <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-                <meta name="referrer" content="no-referrer" />
-                
-                <title>{webpagetile}</title>
-                <meta name="description" content={name} />
-                <link rel="icon" href="/favicon.ico" />
-
-                <meta property="og:url" content={fullPath} />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Bookstore" />
-                <meta property="og:description" content={name} />
-                <meta property="og:image" content={img} key="ogimage" />
-
-                <meta name="twitter:card" content="summary" />
-                <meta property="twitter:domain" content="bookstore-gamma.vercel.app/" />
-                <meta property="twitter:url" content={fullPath} />
-                <meta name="twitter:title" content="Bookstore" />
-                <meta name="twitter:description" content={name} key="desc" />
-                <meta name="twitter:image" content={img} />
-            </Head>
+        <BookHead name={name} coverid={coverid} />
             <div style={{ height: "100vh" }}>
                 <ReactReader
                     url={url}
                     swipeable={true}
                     location={location}
                     locationChanged={locationChanged}
+                    styles={ownStyles}
                 />
                 <div style={{ float: "right" }}>
                     <Link href="/">Back to home</Link>
