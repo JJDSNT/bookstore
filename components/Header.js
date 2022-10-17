@@ -9,7 +9,7 @@ class Header extends Component {
     this.state = {
       error: false,
       extension: "epub",
-      offset: 10
+      offset: 0
     };
     this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -45,7 +45,7 @@ class Header extends Component {
         <div className={style.searchContainer}>
           <form className={style.searchBar} onSubmit={this.search}>
             <label htmlFor="isbn">ISBN</label>
-            <input id="isbn" type="radio"></input>
+            <input id="isbn" type="checkbox"></input>
             <input
               ref={a => (this._inputElement = a)}
               className={style.searchInput}

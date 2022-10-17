@@ -9,7 +9,7 @@ function Pagination({ offset }) {
             {offset > 0 &&
                 <button onClick={() => { }}>&lt;- less 10 </button>
             }
-            &nbsp;{offset}&nbsp;
+            Page: {(offset/10)+1}
             <button type="button">more 10 -&gt;</button>
         </div>
     )
