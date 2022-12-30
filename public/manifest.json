@@ -3,6 +3,7 @@
     "background_color": "#fff",
     "display": "fullscreen",
     "scope": "/",
+    "id": "/",
     "start_url": "/",
     "name": "Bookstore",
     "description": "ePub reader",

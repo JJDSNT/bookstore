@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Head from 'next/head';
+import { register, unregister } from 'next-offline/runtime';
 
 function BookStoreHead() {
-
+    useEffect(() => {
+        register('/service-worker.js', { scope: '/' })
+        return () => {
+            unregister();
+        };
+    }, [])
     return (
         <Head>
             <title>Bookstore</title>
