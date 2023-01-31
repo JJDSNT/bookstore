@@ -26,16 +26,13 @@ class Main extends Component {
 
   componentDidMount() {
 
-    livrosdostorage = getStoredBookList();;
-    let livros2 = livros;
+    livrosdostorage = getStoredBookList();
+
     if (livrosdostorage.length>0) {
       console.log('livrosdostorage');
-      
       this.setState({ books: livrosdostorage });
     } else {
-      console.log('livros cade voces?' + livros);
       for (let livro of livros) {
-        console.log(livro);
         setStoredBook(livro);
       }
     }

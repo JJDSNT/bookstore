@@ -5,7 +5,7 @@ import { rawBook } from './BooksList';
 export function getStoredBookList(): rawBook[] | null {
   console.log('lendo de local storage');
   const storedBookList = localStorage.getItem(BOOKSTORE_LOCALSTORAGE_KEY);
-  return storedBookList ? JSON.parse(storedBookList) : null;
+  return storedBookList ? JSON.parse(storedBookList) : [];
 }
 
 export function setStoredBook(book: rawBook): void {
