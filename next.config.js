@@ -1,19 +1,16 @@
 /** @type {import('next').NextConfig} */
-const withOffline = require('next-offline')
-const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    unoptimized: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== 'development',
   },
-  generateInDevMode: false,
-  dontAutoRegisterSw: true,
-  generateSw: false,
-  workboxOpts: {
-    swDest: './service-worker.js',
-    swSrc: path.join(__dirname, 'sw.js'),
-  }
-}
+};
 
-module.exports = withOffline(nextConfig)
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+});
+
+module.exports = withPWA(nextConfig);
