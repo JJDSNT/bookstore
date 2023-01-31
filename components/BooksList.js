@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from 'next/link'
 import style from "./BooksList.module.css";
-
+import { setStoredBook } from '../book-storage/index';
 
 class BooksList extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class BooksList extends Component {
           >
             Download
           </a>
-          <Link href={url} className={style.download}>Read</Link>
+          <Link onClick={()=>setStoredBook(book)} href={url} className={style.download} >Read</Link>
           {book.extension}
         </div>
       </div>

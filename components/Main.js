@@ -3,12 +3,16 @@ import Header from "./Header.js";
 import BooksList from "./BooksList.js";
 import Loading from "./Loading";
 import Pagination from "./Pagination.js";
+import { getStoredBookList, setStoredBook } from '../book-storage/index';
+import { livros } from "../book-storage/BooksList";
+
+let livrosdostorage = [];
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [],
+      books: [...livrosdostorage],
       loading: false,
       noResults: false,
       offset: 0,
@@ -18,19 +22,39 @@ class Main extends Component {
     };
   }
 
+
+
+  componentDidMount() {
+
+    livrosdostorage = getStoredBookList();;
+    let livros2 = livros;
+    if (livrosdostorage.length>0) {
+      console.log('livrosdostorage');
+      
+      this.setState({ books: livrosdostorage });
+    } else {
+      console.log('livros cade voces?' + livros);
+      for (let livro of livros) {
+        console.log(livro);
+        setStoredBook(livro);
+      }
+    }
+  }
+
+
   cleanDups(array) {
     return [...new Set(array)];
-  }  
+  }
 
   paginationSearch(offset) {
-    this.setBooks(this.state.query,this.state.extension,offset)
+    this.setBooks(this.state.query, this.state.extension, offset)
   }
 
   setBooks(userInput, userExtension, offset) {
 
-    this.setState({query:userInput});
-    this.setState({extension:userExtension});
-    this.setState({offset:offset});
+    this.setState({ query: userInput });
+    this.setState({ extension: userExtension });
+    this.setState({ offset: offset });
 
     this.setState({
       books: [],
@@ -57,8 +81,8 @@ class Main extends Component {
         return response.json();
       })
       .then(data => {
-        if(data.paginar===false){
-          this.setState({paginar:false})
+        if (data.paginar === false) {
+          this.setState({ paginar: false })
         }
         let empty = false;
         //console.log(Array.isArray(data));
@@ -95,22 +119,22 @@ class Main extends Component {
           updateBooks={this.setBooks.bind(this)}
           noResults={this.state.noResults}
         />
-        <Pagination 
-        pagination={this.state.pagination}
-        offset={this.state.offset}
-        paginationSearch={this.paginationSearch.bind(this)} 
-        paginar={this.state.paginar} />
+        <Pagination
+          pagination={this.state.pagination}
+          offset={this.state.offset}
+          paginationSearch={this.paginationSearch.bind(this)}
+          paginar={this.state.paginar} />
         <BooksList books={this.state.books} />
         <Loading
           loading={this.state.loading}
           type="spinningBubbles"
           color="#375d96"
         />
-        <Pagination 
-        pagination={this.state.pagination}
-        offset={this.state.offset}
-        paginar={this.state.paginar}
-        paginationSearch={this.paginationSearch.bind(this)} />
+        <Pagination
+          pagination={this.state.pagination}
+          offset={this.state.offset}
+          paginar={this.state.paginar}
+          paginationSearch={this.paginationSearch.bind(this)} />
       </div>
     );
   }
